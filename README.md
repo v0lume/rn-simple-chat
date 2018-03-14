@@ -7,8 +7,8 @@ Try adding as many as these features as you can manage:
 - [x] Align your messages to the right and everyone else to the left
 - [ ] Group username headers so if the same person chats multiple times in a row it only shows once
 - [ ] Add date like username is listed (grouped as above)
-- [ ] Add multiple "Chat Channels" and a intro screen with a list of channels and the option to create a new one (new ones will have fake users added)
-- [ ] Store Channel state in a new redux state
+- [x] Add multiple "Chat Channels" and a intro screen with a list of channels and the option to create a new one (new ones will have fake users added)
+- [x] Store Channel state in a new redux state
 - [ ] Autogrow text input when adding new entries
 - [x] Autoscroll to bottom when new message arrives
 - [ ] Prevent autoscroll if scrolled upwards viewing history (exception - when you send a new message)

@@ -7,36 +7,30 @@ import { Message, Mock } from '../constants';
 function* add(action) {
     yield put({
         type: Message.ADD,
+        chat_id: action.chat_id,
         email: Mock.email_user,
         message: action.message
     });
-
-    console.log('message sended');
 }
 
-function* generate() {
-    console.log('generate');
+export function* generate(chat_id) {
     while (true) {
-        console.log('loop');
-
         yield delay(5000);
-        console.log('generate1');
 
         const email = Mock.emails[ Math.floor(Math.random() * Mock.emails.length) ];
 
         yield put({
             type: Message.ADD,
+            chat_id,
             email,
             message: lorem({}),
         });
-
-        console.log('message generated');
     }
 }
 
 export function* messageSaga() {
     yield all([
-        call(generate),
+            //call(generate),
         takeLatest(Message.REQUEST_ADD, add),
     ]);
 }

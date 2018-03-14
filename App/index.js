@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import Chat from './Containers/Chat'
+import Root from './Containers/Root'
 import reducers from './Reducers'
 import rootSaga from './Sagas'
 
@@ -22,11 +22,10 @@ export default class App extends React.Component {
 
         return (
             <Provider store={store}>
-                <View style={styles.container}>
-                    <Chat />
-                </View>
+                <Root />
             </Provider>
         )
+
     }
 }
 

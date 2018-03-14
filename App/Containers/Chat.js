@@ -8,21 +8,32 @@ import MessageForm from '../Components/MessageForm';
 import actions from '../Actions';
 
 class Chat extends PureComponent {
+    static navigationOptions = ({ navigation: {state: {params = {}}} }) => {
+        return {
+            title: params.name,
+        };
+    };
+
     handleSubmit = value => {
+        const { navigation: {state: {params = {}}} } = this.props;
         const { send } = this.props;
 
-        value && send(value);
+        value && send(params.id, value);
     };
 
     render() {
-        const { messages } = this.props;
+        const { messages, navigation: {state: {params = {}}} } = this.props;
+
+        const messagesList = Object.prototype.hasOwnProperty.call(messages, params.id)
+            ? messages[params.id]
+            : [];
 
         return (
             <KeyboardAvoidingView
                 behavior="padding"
                 style={{flex: 1, flexDirection:'column', width: '100%'}}
             >
-                <History messages={ messages } />
+                <History messages={ messagesList } />
                 <MessageForm onSubmit={ this.handleSubmit } />
             </KeyboardAvoidingView>
         );
