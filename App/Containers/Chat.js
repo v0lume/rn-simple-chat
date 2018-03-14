@@ -10,8 +10,8 @@ import actions from '../Actions';
 class Chat extends PureComponent {
     handleSubmit = value => {
         const { send } = this.props;
-console.log('send');
-        send(value);
+
+        value && send(value);
     };
 
     render() {
