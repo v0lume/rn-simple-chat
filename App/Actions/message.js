@@ -1,5 +1,5 @@
 import { Message } from '../constants';
 
 export default {
-    send: message => ({type: Message.REQUEST_ADD, message}),
+    send: (chat_id, message) => ({type: Message.REQUEST_ADD, chat_id, message}),
 }

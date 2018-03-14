@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Button, TextInput } from 'react-native';
+import { View, TextInput, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class MessageForm extends PureComponent {
     state = { text: '' };
@@ -26,11 +27,13 @@ class MessageForm extends PureComponent {
         const containerTextinputStyles = {
             backgroundColor: '#eee',
             flexGrow: 1,
+            marginLeft: 10,
         };
 
         const containerButtonStyles = {
-            backgroundColor: '#ddd',
-            width: 100,
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 50,
         };
 
         const textinputStyles = {
@@ -52,11 +55,17 @@ class MessageForm extends PureComponent {
                     />
                 </View>
                 <View style={ containerButtonStyles }>
-                    <Button
+                    <TouchableOpacity
                         style={ buttonStyles }
                         title="Send"
                         onPress={ this.handleSubmit }
-                    />
+                    >
+                        <Ionicons
+                            name={'md-send'}
+                            size={40}
+                            style={{ transform: [{ rotate: '-30deg'}] }}
+                        />
+                    </TouchableOpacity>
                 </View>
             </View>
         );
