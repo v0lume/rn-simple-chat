@@ -2,6 +2,7 @@ import { Message, Mock } from '../constants';
 
 const defaultState = [
     {
+        id: Date.now(),
         email: Mock.email_user,
         message: 'Hello world!',
     },
@@ -15,8 +16,9 @@ const messages = (state = defaultState, action) => {
             return [
                 ...state,
                 {
-                  email,
-                  message,
+                    id: Date.now(),
+                    email,
+                    message,
                 }
             ];
             break;
